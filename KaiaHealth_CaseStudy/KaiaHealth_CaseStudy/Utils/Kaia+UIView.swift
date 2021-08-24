@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIView {
+    /// Adds a subview with equal margins to parent view on all sides
+    /// - Parameters:
+    ///   - view: view to be added as subview
+    ///   - margin: margins on all sides of subview (defaults to 0)
     func addFilledSubview(_ view: UIView, margin: CGFloat = 0) {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
@@ -20,15 +24,16 @@ extension UIView {
         ])
     }
 
-    func addCenteredSubview(_ view: UIView, minimumMargin: CGFloat = 0) {
+    /// Adds a subview that is centered in the parent view
+    /// - Parameters:
+    ///   - view: view to be added as subview
+    func addCenteredSubview(_ view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
 
         NSLayoutConstraint.activate([
             view.centerYAnchor.constraint(equalTo: centerYAnchor),
-            view.centerXAnchor.constraint(equalTo: centerXAnchor),
-            view.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: minimumMargin),
-            view.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: minimumMargin)
+            view.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }

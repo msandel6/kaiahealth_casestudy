@@ -15,19 +15,23 @@ class ExerciseManager {
         static let exerciseURL = "https://jsonblob.com/api/jsonBlob/d92ee4cd-dff6-11eb-a8ab-05b78a9f1668"
     }
 
+    // MARK: Properties
+
+    let networkManager = NetworkManager()
+
     // MARK: Shared instance
 
     static let shared = ExerciseManager()
 
     // MARK: Load exercise data
 
-    func loadExercises(completion: @escaping ([Exercise]?) -> Void) {
+    func loadExercises(completion: @escaping ([Exercise]?) -> ()) {
         guard let url = URL(string: URLs.exerciseURL) else {
             completion(nil)
             return
         }
 
-        NetworkManager.shared.performRequest(for: [Exercise].self, with: url) { result in
+        networkManager.performRequest(for: [Exercise].self, with: url) { result in
             switch result {
             case .success(let exercises):
                 completion(exercises)
@@ -44,27 +48,8 @@ class ExerciseManager {
             return
         }
 
-        NetworkManager.shared.loadImage(url) { image in
+        networkManager.loadImage(url) { image in
             completion(image)
         }
-    }
-
-    // MARK: Persist user preferances
-
-    func setFavoriteStatus(_ status: Bool, for exercise: Exercise?) {
-        guard let exercise = exercise else {
-            return
-        }
-
-        UserDefaults.standard.setValue(status, forKey: String(exercise.id))
-    }
-
-    func favoriteStatus(for exercise: Exercise?) -> Bool {
-        guard let exercise = exercise,
-            let favorited = UserDefaults.standard.value(forKey: String(exercise.id)) as? Bool else {
-            return false
-        }
-
-        return favorited
     }
 }

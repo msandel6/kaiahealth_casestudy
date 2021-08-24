@@ -9,9 +9,7 @@ import UIKit
 
 final class NetworkManager {
 
-    // MARK: Singleton
-
-    static let shared = NetworkManager()
+    // MARK: Static properties
 
     private static let decoder: JSONDecoder = {
         let decoder = JSONDecoder()

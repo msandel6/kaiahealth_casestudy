@@ -1,5 +1,5 @@
 //
-//  StarIcon.swift
+//  FavoriteIcon.swift
 //  KaiaHealth_CaseStudy
 //
 //  Created by Muriel Sandel on 8/22/21.
@@ -7,29 +7,31 @@
 
 import UIKit
 
-class StarIcon: UIButton {
+protocol FavoriteIconDelegate: AnyObject {
+    func setFavoriteStatus(to status: Bool)
+}
+
+class FavoriteIcon: UIButton {
 
     // MARK: Properties
 
-    private var exercise: Exercise?
+    weak var delegate: FavoriteIconDelegate?
 
-    private var starSelected: Bool = false {
+    private var favorited: Bool = false {
         didSet {
-            ExerciseManager.shared.setFavoriteStatus(starSelected, for: exercise)
+            setStarImage(selected: favorited)
         }
     }
 
     // MARK: Configure view
 
-    func configure(with exercise: Exercise?) {
-        self.exercise = exercise
-        
+    func configure(selected: Bool) {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: Constants.Sizing.starIconHeight).isActive = true
         heightAnchor.constraint(equalTo: widthAnchor).isActive = true
         addTarget(self, action: #selector(toggleFavoriteStatus), for: .touchUpInside)
-
-        setStarImage(selected: ExerciseManager.shared.favoriteStatus(for: exercise))
+        
+        favorited = selected
     }
 
     private func setStarImage(selected: Bool) {
@@ -42,9 +44,8 @@ class StarIcon: UIButton {
 
     // MARK: @objc selectors
 
-    @objc
-    func toggleFavoriteStatus(_ sender: UIButton) {
-        starSelected = !starSelected
-        setStarImage(selected: starSelected)
+    @objc func toggleFavoriteStatus(_ sender: UIButton) {
+        favorited = !favorited
+        delegate?.setFavoriteStatus(to: favorited)
     }
 }

@@ -18,13 +18,14 @@ class ExerciseOverviewViewController: UIViewController {
 
     // MARK: Properties
 
-    var exercises: [Exercise] = []
+    private var exercises: [Exercise] = []
+    private let favoritesManager = FavoritesManager()
 
     // MARK: UI elements
 
-    let tableView = UITableView()
+    private let tableView = UITableView()
 
-    private lazy var dataSource: UITableViewDiffableDataSource<Section, Exercise> = makeDataSource()
+    private lazy var dataSource: UITableViewDiffableDataSource<Section, ExerciseWithFavorites> = makeDataSource()
 
     // MARK: Lifecycle
 
@@ -32,7 +33,7 @@ class ExerciseOverviewViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Constants.Colors.lightGrayBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Exercises"
+        title = Strings.title
 
         setupTableView()
         loadExercises()
@@ -43,23 +44,31 @@ class ExerciseOverviewViewController: UIViewController {
     private func setupTableView() {
         view.addFilledSubview(tableView)
 
-        tableView.delegate = self
         tableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.reuseIdentifier)
         tableView.dataSource = dataSource
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        
+        setupTableFooterView()
+    }
+
+    private func setupTableFooterView() {
+        let tableFooterView = ExerciseTableViewFooter()
+        tableFooterView.delegate = self
+        tableFooterView.configure()
+        tableView.tableFooterView = tableFooterView
     }
 
     // MARK: DiffableDataSource
 
-    func makeDataSource() -> UITableViewDiffableDataSource<Section, Exercise> {
-        let dataSource = UITableViewDiffableDataSource<Section, Exercise>(tableView: tableView) { tableView, indexPath, exercise in
+    private func makeDataSource() -> UITableViewDiffableDataSource<Section, ExerciseWithFavorites> {
+        let dataSource = UITableViewDiffableDataSource<Section, ExerciseWithFavorites>(tableView: tableView) { tableView, indexPath, exerciseWithFavorites in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.reuseIdentifier, for: indexPath) as? ExerciseCell else {
                 assertionFailure("Programmer Error!")
                 return UITableViewCell()
             }
 
-            cell.configure(with: exercise)
+            cell.configure(with: exerciseWithFavorites.exercise)
             return cell
         }
 
@@ -68,32 +77,44 @@ class ExerciseOverviewViewController: UIViewController {
 
     // MARK: Fetch data
 
-    func loadExercises() {
+    private func loadExercises() {
+        #warning("You should probably inject this somehow. (Maybe default init parameter so theoretically could be tested")
         ExerciseManager.shared.loadExercises() { [weak self] exercises in
-            var snapshot = NSDiffableDataSourceSnapshot<Section, Exercise>()
-            guard let exercises = exercises else {
+            guard let self = self,
+                  let exercises = exercises else {
                 // TODO: Add error handling
-                self?.exercises = []
                 return
             }
-            snapshot.appendSections([.main])
-            snapshot.appendItems(exercises)
-            self?.exercises = exercises
-            self?.dataSource.apply(snapshot, animatingDifferences: true)
+
+            self.exercises = exercises
+            self.updateDataSource()
         }
+    }
+
+    private func updateDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ExerciseWithFavorites>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(exercises.map {
+                                ExerciseWithFavorites(exercise: $0,
+                                                      favorited: favoritesManager.favoriteStatus(for: $0.id))
+        })
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
-// MARK: - UITableViewDelegate
+extension ExerciseOverviewViewController: ExerciseTableViewFooterDelegate {
+    func startTraining() {
+        let trainingViewController = TrainingViewController(exercises: exercises)
+        trainingViewController.delegate = self
+        trainingViewController.modalPresentationStyle = .fullScreen
+        present(trainingViewController, animated: true)
+    }
+}
 
-extension ExerciseOverviewViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let exercise = exercises[safe: indexPath.row] else {
-            return
+extension ExerciseOverviewViewController: TrainingViewControllerDelegate {
+    func dismissTraining() {
+        presentedViewController?.dismiss(animated: true) { [weak self] in
+            self?.updateDataSource()
         }
-
-        let detailViewController = ExerciseDetailViewController(exercise: exercise)
-        detailViewController.modalPresentationStyle = .fullScreen
-        present(detailViewController, animated: true)
     }
 }
