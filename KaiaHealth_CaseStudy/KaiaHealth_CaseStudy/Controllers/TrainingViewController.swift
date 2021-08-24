@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TrainingViewControllerDelegate: AnyObject {
-    func dismissTraining()
+    func trainingViewControllerDidRequestDismissal(_ trainingViewController: TrainingViewController)
 }
 
 class TrainingViewController: UIViewController {
@@ -23,10 +23,13 @@ class TrainingViewController: UIViewController {
     // MARK: Properties
 
     private let exercises: [Exercise]
-    private let favoritesManager = FavoritesManager()
+    private let favoritesManager: FavoritesManager
     private var currentExerciseIndex = 0
-
     private var timer: Timer?
+
+    private var exercise: Exercise? {
+        return self.exercises[safe: self.currentExerciseIndex]
+    }
 
     weak var delegate: TrainingViewControllerDelegate?
 
@@ -40,15 +43,13 @@ class TrainingViewController: UIViewController {
         return imageView
     }()
 
-    private lazy var starIcon: FavoriteIcon = {
-        let starIcon = FavoriteIcon()
-        starIcon.delegate = self
-
-        if let exercise = exercises[safe: currentExerciseIndex] {
-            starIcon.configure(selected: favoritesManager.favoriteStatus(for: exercise.id))
+    private lazy var favoriteIcon: FavoriteIcon = {
+        let favoriteIcon = FavoriteIcon()
+        if let exercise = exercise {
+            favoriteIcon.configure(isFavorite: favoritesManager.favoriteStatus(for: exercise.id))
         }
-        
-        return starIcon
+        favoriteIcon.addTarget(self, action: #selector(setFavoriteStatus(to:)), for: .touchUpInside)
+        return favoriteIcon
     }()
 
     private lazy var cancelButton: UIButton = {
@@ -64,19 +65,21 @@ class TrainingViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [
             cancelButton,
             exerciseImageView,
-            starIcon
+            favoriteIcon
         ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         stackView.alignment = .trailing
         return stackView
     }()
 
     // MARK: Initializers
 
-    init(exercises: [Exercise]) {
+    init(exercises: [Exercise],
+         favoritesManager: FavoritesManager = FavoritesManager()) {
         self.exercises = exercises
+        self.favoritesManager = favoritesManager
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -95,21 +98,38 @@ class TrainingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addFilledSubview(stackView, margin: Constants.Sizing.viewMargins)
         startExerciseTimer()
-        loadImage(stringURL: exercises[currentExerciseIndex].coverImageUrl)
+        exerciseImageView.loadImage(stringURL: exercises[currentExerciseIndex].coverImageUrl)
+        setupStackView()
     }
 
     // MARK: Private instance methods
 
+    private func setupStackView() {
+        view.addSubview(stackView)
+
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.Sizing.tableViewFooterHeight),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.Sizing.tableViewFooterHeight),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Sizing.viewMargins),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Sizing.viewMargins)
+        ])
+    }
+
+    private func configureFavoriteIcon() {
+        guard let exercise = exercise else { return }
+        favoriteIcon.configure(isFavorite: favoritesManager.favoriteStatus(for: exercise.id))
+    }
+
     private func startExerciseTimer() {
+        // TODO: Break this logic into its own manager given more time.
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] timer in
             guard let self = self else { return }
 
             self.currentExerciseIndex += 1
-            if let exercise = self.exercises[safe: self.currentExerciseIndex] {
-                self.starIcon.configure(selected: self.favoritesManager.favoriteStatus(for: exercise.id))
-                self.loadImage(stringURL: exercise.coverImageUrl)
+            if let exercise = self.exercise {
+                self.favoriteIcon.configure(isFavorite: self.favoritesManager.favoriteStatus(for: exercise.id))
+                self.exerciseImageView.loadImage(stringURL: exercise.coverImageUrl)
             } else {
                 timer.invalidate()
                 self.dismiss(animated: true)
@@ -117,24 +137,16 @@ class TrainingViewController: UIViewController {
         }
     }
 
-    private func loadImage(stringURL: String?) {
-        ExerciseManager.shared.loadImage(stringURL: stringURL) { image in
-            DispatchQueue.main.async {
-                self.exerciseImageView.image = image
-            }
-        }
-    }
-
     // MARK: @objc selectors
 
     @objc func cancel(_ sender: UIButton) {
-        delegate?.dismissTraining()
+        delegate?.trainingViewControllerDidRequestDismissal(self)
     }
-}
 
-extension TrainingViewController: FavoriteIconDelegate {
-    func setFavoriteStatus(to status: Bool) {
-        guard let exercise = exercises[safe: currentExerciseIndex] else { return }
-        favoritesManager.setFavoriteStatus(status, for: exercise.id)
+    @objc func setFavoriteStatus(to isFavorite: Bool) {
+        guard let exercise = exercise else { return }
+        favoritesManager.setFavoriteStatus(isFavorite,
+                                           for: exercise.id)
+        configureFavoriteIcon()
     }
 }

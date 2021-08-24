@@ -19,15 +19,15 @@ class ExerciseManager {
 
     let networkManager = NetworkManager()
 
-    // MARK: Shared instance
-
-    static let shared = ExerciseManager()
-
     // MARK: Load exercise data
 
-    func loadExercises(completion: @escaping ([Exercise]?) -> ()) {
+    /// Loads exercises from the API
+    /// - Parameter completion: closure to be executed once request is completed
+    /// - Returns: an array of type `[Exercise]`
+    func loadExercises(completion: @escaping ([Exercise]) -> ()) {
         guard let url = URL(string: URLs.exerciseURL) else {
-            completion(nil)
+            // TODO: Error handling
+            completion([])
             return
         }
 
@@ -36,20 +36,9 @@ class ExerciseManager {
             case .success(let exercises):
                 completion(exercises)
             case .failure:
-                completion(nil)
+                // TODO: Error handling
+                completion([])
             }
-        }
-    }
-
-    func loadImage(stringURL: String?, completion: @escaping (UIImage?) -> Void) {
-        guard let stringURL = stringURL,
-              let url = URL(string: stringURL) else {
-            completion(nil)
-            return
-        }
-
-        networkManager.loadImage(url) { image in
-            completion(image)
         }
     }
 }

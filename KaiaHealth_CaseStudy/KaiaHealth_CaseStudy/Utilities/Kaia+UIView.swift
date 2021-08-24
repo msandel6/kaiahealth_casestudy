@@ -1,6 +1,6 @@
 //
 //  Kaia+UIView.swift
-//  Kaia_CaseStudy
+//  KaiaHealth_CaseStudy
 //
 //  Created by Muriel Sandel on 8/22/21.
 //

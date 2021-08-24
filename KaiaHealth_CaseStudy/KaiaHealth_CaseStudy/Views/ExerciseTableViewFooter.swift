@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ExerciseTableViewFooterDelegate: AnyObject {
-    func startTraining()
-}
-
 class ExerciseTableViewFooter: UIView {
 
     // MARK: Strings
@@ -20,13 +16,9 @@ class ExerciseTableViewFooter: UIView {
         static let startTraining = "Start Training"
     }
 
-    // MARK: Delegate
-
-    weak var delegate: ExerciseTableViewFooterDelegate?
-
     // MARK: UI elements
 
-    private lazy var startTrainingButton: UIButton = {
+    private(set) lazy var startTrainingButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Constants.Sizing.buttonCornerRadius
@@ -34,20 +26,17 @@ class ExerciseTableViewFooter: UIView {
 
         button.setTitle(Strings.startTraining, for: .normal)
         button.backgroundColor = .systemGray
-        button.addTarget(self, action: #selector(startTraining), for: .touchUpInside)
         return button
     }()
 
-    // MARK: Configure view
+    // MARK: Initailizer
 
-    func configure() {
-        frame.size.height = Constants.Sizing.tableViewFooterHeight
-        addFilledSubview(startTrainingButton, margin: Constants.Sizing.interItemSpacing)
+    init() {
+        super.init(frame: .zero)
+        addCenteredSubview(startTrainingButton)
     }
-
-    // MARK: @objc selectors
-
-    @objc func startTraining(_ sender: UIButton) {
-        delegate?.startTraining()
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		E40C004126D32355009D54AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C004026D32355009D54AA /* AppDelegate.swift */; };
 		E40C004326D32355009D54AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C004226D32355009D54AA /* SceneDelegate.swift */; };
-		E40C004826D32355009D54AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40C004626D32355009D54AA /* Main.storyboard */; };
 		E40C004A26D32359009D54AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E40C004926D32359009D54AA /* Assets.xcassets */; };
 		E40C004D26D32359009D54AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40C004B26D32359009D54AA /* LaunchScreen.storyboard */; };
-		E40C005826D32359009D54AA /* KaiaHealth_CaseStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C005726D32359009D54AA /* KaiaHealth_CaseStudyTests.swift */; };
+		E40C005826D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C005726D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift */; };
 		E40C006326D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C006226D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift */; };
 		E40C007F26D323AA009D54AA /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007526D323A9009D54AA /* Exercise.swift */; };
 		E40C008026D323AA009D54AA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007626D323A9009D54AA /* Section.swift */; };
@@ -29,7 +28,9 @@
 		E40C00E326D34C50009D54AA /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00E226D34C50009D54AA /* FavoriteIcon.swift */; };
 		E40C00EB26D35D01009D54AA /* ExerciseTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00EA26D35D01009D54AA /* ExerciseTableViewFooter.swift */; };
 		E41291B026D48CFA007DB2D2 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291AF26D48CFA007DB2D2 /* FavoritesManager.swift */; };
-		E41291BC26D4963C007DB2D2 /* ExerciseWithFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291BB26D4963C007DB2D2 /* ExerciseWithFavorites.swift */; };
+		E41291BC26D4963C007DB2D2 /* ExerciseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291BB26D4963C007DB2D2 /* ExerciseItem.swift */; };
+		E41291E826D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291E726D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift */; };
+		E41291F326D4B3D2007DB2D2 /* Kaia+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291F226D4B3D2007DB2D2 /* Kaia+UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +54,11 @@
 		E40C003D26D32355009D54AA /* KaiaHealth_CaseStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaiaHealth_CaseStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40C004026D32355009D54AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E40C004226D32355009D54AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E40C004726D32355009D54AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E40C004926D32359009D54AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E40C004C26D32359009D54AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E40C004E26D32359009D54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40C005326D32359009D54AA /* KaiaHealth_CaseStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiaHealth_CaseStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E40C005726D32359009D54AA /* KaiaHealth_CaseStudyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyTests.swift; sourceTree = "<group>"; };
+		E40C005726D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyFavoritesManagerTests.swift; sourceTree = "<group>"; };
 		E40C005926D32359009D54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40C005E26D32359009D54AA /* KaiaHealth_CaseStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiaHealth_CaseStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40C006226D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyUITests.swift; sourceTree = "<group>"; };
@@ -78,7 +78,9 @@
 		E40C00E226D34C50009D54AA /* FavoriteIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIcon.swift; sourceTree = "<group>"; };
 		E40C00EA26D35D01009D54AA /* ExerciseTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewFooter.swift; sourceTree = "<group>"; };
 		E41291AF26D48CFA007DB2D2 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
-		E41291BB26D4963C007DB2D2 /* ExerciseWithFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseWithFavorites.swift; sourceTree = "<group>"; };
+		E41291BB26D4963C007DB2D2 /* ExerciseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItem.swift; sourceTree = "<group>"; };
+		E41291E726D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudySafeIndexTests.swift; sourceTree = "<group>"; };
+		E41291F226D4B3D2007DB2D2 /* Kaia+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kaia+UIImageView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,12 +134,11 @@
 				E41291B426D48D02007DB2D2 /* Managers */,
 				E40C00C926D33A89009D54AA /* Common */,
 				E40C007426D323A9009D54AA /* Models */,
-				E40C007726D323A9009D54AA /* Utils */,
+				E40C007726D323A9009D54AA /* Utilities */,
 				E40C009526D323E9009D54AA /* Controllers */,
 				E40C007C26D323AA009D54AA /* Views */,
 				E40C004026D32355009D54AA /* AppDelegate.swift */,
 				E40C004226D32355009D54AA /* SceneDelegate.swift */,
-				E40C004626D32355009D54AA /* Main.storyboard */,
 				E40C004926D32359009D54AA /* Assets.xcassets */,
 				E40C004B26D32359009D54AA /* LaunchScreen.storyboard */,
 				E40C004E26D32359009D54AA /* Info.plist */,
@@ -148,8 +149,9 @@
 		E40C005626D32359009D54AA /* KaiaHealth_CaseStudyTests */ = {
 			isa = PBXGroup;
 			children = (
-				E40C005726D32359009D54AA /* KaiaHealth_CaseStudyTests.swift */,
+				E40C005726D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift */,
 				E40C005926D32359009D54AA /* Info.plist */,
+				E41291E726D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift */,
 			);
 			path = KaiaHealth_CaseStudyTests;
 			sourceTree = "<group>";
@@ -168,19 +170,20 @@
 			children = (
 				E40C007526D323A9009D54AA /* Exercise.swift */,
 				E40C007626D323A9009D54AA /* Section.swift */,
-				E41291BB26D4963C007DB2D2 /* ExerciseWithFavorites.swift */,
+				E41291BB26D4963C007DB2D2 /* ExerciseItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E40C007726D323A9009D54AA /* Utils */ = {
+		E40C007726D323A9009D54AA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				E40C007826D323A9009D54AA /* Kaia+UIView.swift */,
 				E40C00AC26D328D9009D54AA /* Kaia+URLResponse.swift */,
 				E40C00D226D33BB7009D54AA /* Kaia+Collection.swift */,
+				E41291F226D4B3D2007DB2D2 /* Kaia+UIImageView.swift */,
 			);
-			path = Utils;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		E40C007C26D323AA009D54AA /* Views */ = {
@@ -326,7 +329,6 @@
 			files = (
 				E40C004D26D32359009D54AA /* LaunchScreen.storyboard in Resources */,
 				E40C004A26D32359009D54AA /* Assets.xcassets in Resources */,
-				E40C004826D32355009D54AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,13 +357,14 @@
 				E40C007F26D323AA009D54AA /* Exercise.swift in Sources */,
 				E40C00EB26D35D01009D54AA /* ExerciseTableViewFooter.swift in Sources */,
 				E40C00AD26D328D9009D54AA /* Kaia+URLResponse.swift in Sources */,
+				E41291F326D4B3D2007DB2D2 /* Kaia+UIImageView.swift in Sources */,
 				E40C008026D323AA009D54AA /* Section.swift in Sources */,
 				E41291B026D48CFA007DB2D2 /* FavoritesManager.swift in Sources */,
 				E40C00D326D33BB7009D54AA /* Kaia+Collection.swift in Sources */,
 				E40C008526D323AA009D54AA /* ExerciseCell.swift in Sources */,
 				E40C00B226D328F6009D54AA /* NetworkingError.swift in Sources */,
 				E40C00A526D32454009D54AA /* NetworkManager.swift in Sources */,
-				E41291BC26D4963C007DB2D2 /* ExerciseWithFavorites.swift in Sources */,
+				E41291BC26D4963C007DB2D2 /* ExerciseItem.swift in Sources */,
 				E40C00CB26D33A93009D54AA /* Constants.swift in Sources */,
 				E40C009826D323E9009D54AA /* ExerciseOverviewViewController.swift in Sources */,
 				E40C00BA26D32929009D54AA /* ExerciseManager.swift in Sources */,
@@ -376,7 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E40C005826D32359009D54AA /* KaiaHealth_CaseStudyTests.swift in Sources */,
+				E40C005826D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift in Sources */,
+				E41291E826D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,14 +408,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E40C004626D32355009D54AA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E40C004726D32355009D54AA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E40C004B26D32359009D54AA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

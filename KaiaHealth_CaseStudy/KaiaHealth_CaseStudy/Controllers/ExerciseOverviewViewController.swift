@@ -18,14 +18,28 @@ class ExerciseOverviewViewController: UIViewController {
 
     // MARK: Properties
 
-    private var exercises: [Exercise] = []
-    private let favoritesManager = FavoritesManager()
+    private let exerciseManager: ExerciseManager
+    private let favoritesManager: FavoritesManager
 
     // MARK: UI elements
 
     private let tableView = UITableView()
+    private let tableFooterView = ExerciseTableViewFooter()
 
-    private lazy var dataSource: UITableViewDiffableDataSource<Section, ExerciseWithFavorites> = makeDataSource()
+    private lazy var dataSource: UITableViewDiffableDataSource<Section, ExerciseItem> = makeDataSource()
+
+    // MARK: Initializers
+
+    init(exerciseManager: ExerciseManager = ExerciseManager(),
+         favoritesManager: FavoritesManager = FavoritesManager()) {
+        self.exerciseManager = exerciseManager
+        self.favoritesManager = favoritesManager
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: Lifecycle
 
@@ -53,16 +67,16 @@ class ExerciseOverviewViewController: UIViewController {
     }
 
     private func setupTableFooterView() {
-        let tableFooterView = ExerciseTableViewFooter()
-        tableFooterView.delegate = self
-        tableFooterView.configure()
+        tableFooterView.frame.size.height = Constants.Sizing.tableViewFooterHeight
+        tableFooterView.startTrainingButton.addTarget(self, action: #selector(startTraining), for: .touchUpInside)
+        tableFooterView.startTrainingButton.isHidden = true
         tableView.tableFooterView = tableFooterView
     }
 
     // MARK: DiffableDataSource
 
-    private func makeDataSource() -> UITableViewDiffableDataSource<Section, ExerciseWithFavorites> {
-        let dataSource = UITableViewDiffableDataSource<Section, ExerciseWithFavorites>(tableView: tableView) { tableView, indexPath, exerciseWithFavorites in
+    private func makeDataSource() -> UITableViewDiffableDataSource<Section, ExerciseItem> {
+        let dataSource = UITableViewDiffableDataSource<Section, ExerciseItem>(tableView: tableView) { tableView, indexPath, exerciseWithFavorites in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.reuseIdentifier, for: indexPath) as? ExerciseCell else {
                 assertionFailure("Programmer Error!")
                 return UITableViewCell()
@@ -78,33 +92,34 @@ class ExerciseOverviewViewController: UIViewController {
     // MARK: Fetch data
 
     private func loadExercises() {
-        #warning("You should probably inject this somehow. (Maybe default init parameter so theoretically could be tested")
-        ExerciseManager.shared.loadExercises() { [weak self] exercises in
-            guard let self = self,
-                  let exercises = exercises else {
-                // TODO: Add error handling
-                return
+        exerciseManager.loadExercises() { [weak self] exercises in
+            DispatchQueue.main.async {
+                self?.updateDataSource(with: exercises)
+                if !exercises.isEmpty {
+                    self?.tableFooterView.startTrainingButton.isHidden = false
+                } else {
+                    // TODO: Add label, alert, or refresh button
+                }
             }
-
-            self.exercises = exercises
-            self.updateDataSource()
         }
     }
 
-    private func updateDataSource() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, ExerciseWithFavorites>()
+    private func updateDataSource(with exercises: [Exercise]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ExerciseItem>()
         snapshot.appendSections([.main])
         snapshot.appendItems(exercises.map {
-                                ExerciseWithFavorites(exercise: $0,
-                                                      favorited: favoritesManager.favoriteStatus(for: $0.id))
+            ExerciseItem(exercise: $0,
+                         isFavorite: favoritesManager.favoriteStatus(for: $0.id))
         })
+
         dataSource.apply(snapshot, animatingDifferences: false)
     }
-}
 
-extension ExerciseOverviewViewController: ExerciseTableViewFooterDelegate {
-    func startTraining() {
-        let trainingViewController = TrainingViewController(exercises: exercises)
+    // MARK: Training
+
+    @objc private func startTraining() {
+        let excercies = dataSource.snapshot().itemIdentifiers.map { $0.exercise }
+        let trainingViewController = TrainingViewController(exercises: excercies)
         trainingViewController.delegate = self
         trainingViewController.modalPresentationStyle = .fullScreen
         present(trainingViewController, animated: true)
@@ -112,9 +127,9 @@ extension ExerciseOverviewViewController: ExerciseTableViewFooterDelegate {
 }
 
 extension ExerciseOverviewViewController: TrainingViewControllerDelegate {
-    func dismissTraining() {
-        presentedViewController?.dismiss(animated: true) { [weak self] in
-            self?.updateDataSource()
-        }
+    func trainingViewControllerDidRequestDismissal(_ trainingViewController: TrainingViewController) {
+        // TODO: I don't love this - given more time, find a better way to do this
+        updateDataSource(with: self.dataSource.snapshot().itemIdentifiers.map { $0.exercise })
+        trainingViewController.dismiss(animated: true)
     }
 }

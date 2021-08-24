@@ -1,5 +1,5 @@
 //
-//  ExerciseWithFavorites.swift
+//  ExerciseItem.swift
 //  KaiaHealth_CaseStudy
 //
 //  Created by Muriel Sandel on 8/23/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExerciseWithFavorites: Hashable {
+struct ExerciseItem: Hashable {
     let exercise: Exercise
-    let favorited: Bool
+    let isFavorite: Bool
 }

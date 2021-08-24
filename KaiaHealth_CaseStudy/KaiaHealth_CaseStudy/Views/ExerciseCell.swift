@@ -20,7 +20,11 @@ class ExerciseCell: UITableViewCell {
 
     // MARK: UI elements
 
-    lazy var starIcon = FavoriteIcon()
+    private lazy var favoriteIcon: FavoriteIcon = {
+        let icon = FavoriteIcon()
+        icon.addTarget(self, action: #selector(setFavoriteStatus(to:)), for: .touchUpInside)
+        return icon
+    }()
 
     private lazy var thumbnailView: UIImageView = {
         let view = UIImageView()
@@ -46,7 +50,7 @@ class ExerciseCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: [
             thumbnailView,
             label,
-            starIcon
+            favoriteIcon
         ])
 
         stackView.axis = .horizontal
@@ -84,7 +88,6 @@ class ExerciseCell: UITableViewCell {
 
     override func prepareForReuse() {
         label.text = nil
-        starIcon = FavoriteIcon()
         thumbnailView.image = UIImage(named: Constants.Images.exercisePlaceholder)
     }
 
@@ -93,33 +96,21 @@ class ExerciseCell: UITableViewCell {
     func configure(with exercise: Exercise) {
         self.exercise = exercise
         label.text = exercise.name
-        loadImage(stringURL: exercise.coverImageUrl)
-        setupStarIcon()
+        thumbnailView.loadImage(stringURL: exercise.coverImageUrl)
+        configureFavoriteIcon()
     }
 
-    private func setupStarIcon() {
+    private func configureFavoriteIcon() {
         guard let exercise = exercise else { return }
-
-        starIcon.configure(selected: favoritesManager.favoriteStatus(for: exercise.id))
-        starIcon.delegate = self
+        favoriteIcon.configure(isFavorite: favoritesManager.favoriteStatus(for: exercise.id))
     }
 
-    // MARK: Fetch image data
-
-    private func loadImage(stringURL: String?) {
-        ExerciseManager.shared.loadImage(stringURL: stringURL) { [weak self] image in
-            guard let self = self else { return }
-
-            DispatchQueue.main.async {
-                self.thumbnailView.image = image
-            }
-        }
-    }
-}
-
-extension ExerciseCell: FavoriteIconDelegate {
-    func setFavoriteStatus(to status: Bool) {
-        favoritesManager.setFavoriteStatus(status,
-                                                 for: exercise?.id)
+    // MARK: @objc selectors
+    
+    @objc func setFavoriteStatus(to isFavorite: Bool) {
+        guard let exercise = exercise else { return }
+        favoritesManager.setFavoriteStatus(isFavorite,
+                                           for: exercise.id)
+        configureFavoriteIcon()
     }
 }
