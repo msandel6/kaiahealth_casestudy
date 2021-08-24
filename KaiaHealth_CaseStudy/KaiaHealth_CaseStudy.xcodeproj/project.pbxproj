@@ -1,0 +1,702 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E40C004126D32355009D54AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C004026D32355009D54AA /* AppDelegate.swift */; };
+		E40C004326D32355009D54AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C004226D32355009D54AA /* SceneDelegate.swift */; };
+		E40C004A26D32359009D54AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E40C004926D32359009D54AA /* Assets.xcassets */; };
+		E40C004D26D32359009D54AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40C004B26D32359009D54AA /* LaunchScreen.storyboard */; };
+		E40C005826D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C005726D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift */; };
+		E40C006326D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C006226D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift */; };
+		E40C007F26D323AA009D54AA /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007526D323A9009D54AA /* Exercise.swift */; };
+		E40C008026D323AA009D54AA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007626D323A9009D54AA /* Section.swift */; };
+		E40C008126D323AA009D54AA /* Kaia+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007826D323A9009D54AA /* Kaia+UIView.swift */; };
+		E40C008526D323AA009D54AA /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007D26D323AA009D54AA /* ExerciseCell.swift */; };
+		E40C009826D323E9009D54AA /* ExerciseOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C009626D323E9009D54AA /* ExerciseOverviewViewController.swift */; };
+		E40C00A526D32454009D54AA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00A426D32454009D54AA /* NetworkManager.swift */; };
+		E40C00AD26D328D9009D54AA /* Kaia+URLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00AC26D328D9009D54AA /* Kaia+URLResponse.swift */; };
+		E40C00B226D328F6009D54AA /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00B126D328F6009D54AA /* NetworkingError.swift */; };
+		E40C00BA26D32929009D54AA /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00B926D32929009D54AA /* ExerciseManager.swift */; };
+		E40C00C526D338F4009D54AA /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00C426D338F4009D54AA /* TrainingViewController.swift */; };
+		E40C00CB26D33A93009D54AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00CA26D33A93009D54AA /* Constants.swift */; };
+		E40C00D326D33BB7009D54AA /* Kaia+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00D226D33BB7009D54AA /* Kaia+Collection.swift */; };
+		E40C00E326D34C50009D54AA /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00E226D34C50009D54AA /* FavoriteIcon.swift */; };
+		E40C00EB26D35D01009D54AA /* ExerciseTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C00EA26D35D01009D54AA /* ExerciseTableViewFooter.swift */; };
+		E41291B026D48CFA007DB2D2 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291AF26D48CFA007DB2D2 /* FavoritesManager.swift */; };
+		E41291BC26D4963C007DB2D2 /* ExerciseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291BB26D4963C007DB2D2 /* ExerciseItem.swift */; };
+		E41291E826D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291E726D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift */; };
+		E41291F326D4B3D2007DB2D2 /* Kaia+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41291F226D4B3D2007DB2D2 /* Kaia+UIImageView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E40C005426D32359009D54AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40C003526D32355009D54AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E40C003C26D32355009D54AA;
+			remoteInfo = KaiaHealth_CaseStudy;
+		};
+		E40C005F26D32359009D54AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40C003526D32355009D54AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E40C003C26D32355009D54AA;
+			remoteInfo = KaiaHealth_CaseStudy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E40C003D26D32355009D54AA /* KaiaHealth_CaseStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaiaHealth_CaseStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40C004026D32355009D54AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E40C004226D32355009D54AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E40C004926D32359009D54AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E40C004C26D32359009D54AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E40C004E26D32359009D54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40C005326D32359009D54AA /* KaiaHealth_CaseStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiaHealth_CaseStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40C005726D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyExerciseCellTests.swift; sourceTree = "<group>"; };
+		E40C005926D32359009D54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40C005E26D32359009D54AA /* KaiaHealth_CaseStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiaHealth_CaseStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40C006226D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyUITests.swift; sourceTree = "<group>"; };
+		E40C006426D32359009D54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40C007526D323A9009D54AA /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		E40C007626D323A9009D54AA /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		E40C007826D323A9009D54AA /* Kaia+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Kaia+UIView.swift"; sourceTree = "<group>"; };
+		E40C007D26D323AA009D54AA /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		E40C009626D323E9009D54AA /* ExerciseOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseOverviewViewController.swift; sourceTree = "<group>"; };
+		E40C00A426D32454009D54AA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E40C00AC26D328D9009D54AA /* Kaia+URLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kaia+URLResponse.swift"; sourceTree = "<group>"; };
+		E40C00B126D328F6009D54AA /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		E40C00B926D32929009D54AA /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
+		E40C00C426D338F4009D54AA /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		E40C00CA26D33A93009D54AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E40C00D226D33BB7009D54AA /* Kaia+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kaia+Collection.swift"; sourceTree = "<group>"; };
+		E40C00E226D34C50009D54AA /* FavoriteIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIcon.swift; sourceTree = "<group>"; };
+		E40C00EA26D35D01009D54AA /* ExerciseTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewFooter.swift; sourceTree = "<group>"; };
+		E41291AF26D48CFA007DB2D2 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		E41291BB26D4963C007DB2D2 /* ExerciseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItem.swift; sourceTree = "<group>"; };
+		E41291E726D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudySafeIndexTests.swift; sourceTree = "<group>"; };
+		E41291F226D4B3D2007DB2D2 /* Kaia+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kaia+UIImageView.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E40C003A26D32355009D54AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40C005026D32359009D54AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40C005B26D32359009D54AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E40C003426D32355009D54AA = {
+			isa = PBXGroup;
+			children = (
+				E40C003F26D32355009D54AA /* KaiaHealth_CaseStudy */,
+				E40C005626D32359009D54AA /* KaiaHealth_CaseStudyTests */,
+				E40C006126D32359009D54AA /* KaiaHealth_CaseStudyUITests */,
+				E40C003E26D32355009D54AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E40C003E26D32355009D54AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E40C003D26D32355009D54AA /* KaiaHealth_CaseStudy.app */,
+				E40C005326D32359009D54AA /* KaiaHealth_CaseStudyTests.xctest */,
+				E40C005E26D32359009D54AA /* KaiaHealth_CaseStudyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E40C003F26D32355009D54AA /* KaiaHealth_CaseStudy */ = {
+			isa = PBXGroup;
+			children = (
+				E41291B426D48D02007DB2D2 /* Managers */,
+				E40C00C926D33A89009D54AA /* Common */,
+				E40C007426D323A9009D54AA /* Models */,
+				E40C007726D323A9009D54AA /* Utilities */,
+				E40C009526D323E9009D54AA /* Controllers */,
+				E40C007C26D323AA009D54AA /* Views */,
+				E40C004026D32355009D54AA /* AppDelegate.swift */,
+				E40C004226D32355009D54AA /* SceneDelegate.swift */,
+				E40C004926D32359009D54AA /* Assets.xcassets */,
+				E40C004B26D32359009D54AA /* LaunchScreen.storyboard */,
+				E40C004E26D32359009D54AA /* Info.plist */,
+			);
+			path = KaiaHealth_CaseStudy;
+			sourceTree = "<group>";
+		};
+		E40C005626D32359009D54AA /* KaiaHealth_CaseStudyTests */ = {
+			isa = PBXGroup;
+			children = (
+				E40C005726D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift */,
+				E41291E726D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift */,
+				E40C005926D32359009D54AA /* Info.plist */,
+			);
+			path = KaiaHealth_CaseStudyTests;
+			sourceTree = "<group>";
+		};
+		E40C006126D32359009D54AA /* KaiaHealth_CaseStudyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E40C006226D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift */,
+				E40C006426D32359009D54AA /* Info.plist */,
+			);
+			path = KaiaHealth_CaseStudyUITests;
+			sourceTree = "<group>";
+		};
+		E40C007426D323A9009D54AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E40C007526D323A9009D54AA /* Exercise.swift */,
+				E40C007626D323A9009D54AA /* Section.swift */,
+				E41291BB26D4963C007DB2D2 /* ExerciseItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E40C007726D323A9009D54AA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E40C007826D323A9009D54AA /* Kaia+UIView.swift */,
+				E40C00AC26D328D9009D54AA /* Kaia+URLResponse.swift */,
+				E40C00D226D33BB7009D54AA /* Kaia+Collection.swift */,
+				E41291F226D4B3D2007DB2D2 /* Kaia+UIImageView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E40C007C26D323AA009D54AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E40C007D26D323AA009D54AA /* ExerciseCell.swift */,
+				E40C00E226D34C50009D54AA /* FavoriteIcon.swift */,
+				E40C00EA26D35D01009D54AA /* ExerciseTableViewFooter.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E40C009526D323E9009D54AA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E40C009626D323E9009D54AA /* ExerciseOverviewViewController.swift */,
+				E40C00C426D338F4009D54AA /* TrainingViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E40C00C926D33A89009D54AA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E40C00CA26D33A93009D54AA /* Constants.swift */,
+				E40C00B126D328F6009D54AA /* NetworkingError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E41291B426D48D02007DB2D2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E41291AF26D48CFA007DB2D2 /* FavoritesManager.swift */,
+				E40C00B926D32929009D54AA /* ExerciseManager.swift */,
+				E40C00A426D32454009D54AA /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E40C003C26D32355009D54AA /* KaiaHealth_CaseStudy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40C006726D32359009D54AA /* Build configuration list for PBXNativeTarget "KaiaHealth_CaseStudy" */;
+			buildPhases = (
+				E40C003926D32355009D54AA /* Sources */,
+				E40C003A26D32355009D54AA /* Frameworks */,
+				E40C003B26D32355009D54AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KaiaHealth_CaseStudy;
+			productName = KaiaHealth_CaseStudy;
+			productReference = E40C003D26D32355009D54AA /* KaiaHealth_CaseStudy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E40C005226D32359009D54AA /* KaiaHealth_CaseStudyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40C006A26D32359009D54AA /* Build configuration list for PBXNativeTarget "KaiaHealth_CaseStudyTests" */;
+			buildPhases = (
+				E40C004F26D32359009D54AA /* Sources */,
+				E40C005026D32359009D54AA /* Frameworks */,
+				E40C005126D32359009D54AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E40C005526D32359009D54AA /* PBXTargetDependency */,
+			);
+			name = KaiaHealth_CaseStudyTests;
+			productName = KaiaHealth_CaseStudyTests;
+			productReference = E40C005326D32359009D54AA /* KaiaHealth_CaseStudyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E40C005D26D32359009D54AA /* KaiaHealth_CaseStudyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40C006D26D32359009D54AA /* Build configuration list for PBXNativeTarget "KaiaHealth_CaseStudyUITests" */;
+			buildPhases = (
+				E40C005A26D32359009D54AA /* Sources */,
+				E40C005B26D32359009D54AA /* Frameworks */,
+				E40C005C26D32359009D54AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E40C006026D32359009D54AA /* PBXTargetDependency */,
+			);
+			name = KaiaHealth_CaseStudyUITests;
+			productName = KaiaHealth_CaseStudyUITests;
+			productReference = E40C005E26D32359009D54AA /* KaiaHealth_CaseStudyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E40C003526D32355009D54AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					E40C003C26D32355009D54AA = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					E40C005226D32359009D54AA = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E40C003C26D32355009D54AA;
+					};
+					E40C005D26D32359009D54AA = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E40C003C26D32355009D54AA;
+					};
+				};
+			};
+			buildConfigurationList = E40C003826D32355009D54AA /* Build configuration list for PBXProject "KaiaHealth_CaseStudy" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E40C003426D32355009D54AA;
+			productRefGroup = E40C003E26D32355009D54AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E40C003C26D32355009D54AA /* KaiaHealth_CaseStudy */,
+				E40C005226D32359009D54AA /* KaiaHealth_CaseStudyTests */,
+				E40C005D26D32359009D54AA /* KaiaHealth_CaseStudyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E40C003B26D32355009D54AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40C004D26D32359009D54AA /* LaunchScreen.storyboard in Resources */,
+				E40C004A26D32359009D54AA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40C005126D32359009D54AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40C005C26D32359009D54AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E40C003926D32355009D54AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40C008126D323AA009D54AA /* Kaia+UIView.swift in Sources */,
+				E40C007F26D323AA009D54AA /* Exercise.swift in Sources */,
+				E40C00EB26D35D01009D54AA /* ExerciseTableViewFooter.swift in Sources */,
+				E40C00AD26D328D9009D54AA /* Kaia+URLResponse.swift in Sources */,
+				E41291F326D4B3D2007DB2D2 /* Kaia+UIImageView.swift in Sources */,
+				E40C008026D323AA009D54AA /* Section.swift in Sources */,
+				E41291B026D48CFA007DB2D2 /* FavoritesManager.swift in Sources */,
+				E40C00D326D33BB7009D54AA /* Kaia+Collection.swift in Sources */,
+				E40C008526D323AA009D54AA /* ExerciseCell.swift in Sources */,
+				E40C00B226D328F6009D54AA /* NetworkingError.swift in Sources */,
+				E40C00A526D32454009D54AA /* NetworkManager.swift in Sources */,
+				E41291BC26D4963C007DB2D2 /* ExerciseItem.swift in Sources */,
+				E40C00CB26D33A93009D54AA /* Constants.swift in Sources */,
+				E40C009826D323E9009D54AA /* ExerciseOverviewViewController.swift in Sources */,
+				E40C00BA26D32929009D54AA /* ExerciseManager.swift in Sources */,
+				E40C004126D32355009D54AA /* AppDelegate.swift in Sources */,
+				E40C00E326D34C50009D54AA /* FavoriteIcon.swift in Sources */,
+				E40C004326D32355009D54AA /* SceneDelegate.swift in Sources */,
+				E40C00C526D338F4009D54AA /* TrainingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40C004F26D32359009D54AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40C005826D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift in Sources */,
+				E41291E826D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40C005A26D32359009D54AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40C006326D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E40C005526D32359009D54AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40C003C26D32355009D54AA /* KaiaHealth_CaseStudy */;
+			targetProxy = E40C005426D32359009D54AA /* PBXContainerItemProxy */;
+		};
+		E40C006026D32359009D54AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40C003C26D32355009D54AA /* KaiaHealth_CaseStudy */;
+			targetProxy = E40C005F26D32359009D54AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E40C004B26D32359009D54AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E40C004C26D32359009D54AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E40C006526D32359009D54AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E40C006626D32359009D54AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E40C006826D32359009D54AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = USRA36PDDV;
+				INFOPLIST_FILE = KaiaHealth_CaseStudy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.KaiaHealth-CaseStudy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E40C006926D32359009D54AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = USRA36PDDV;
+				INFOPLIST_FILE = KaiaHealth_CaseStudy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.KaiaHealth-CaseStudy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E40C006B26D32359009D54AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = USRA36PDDV;
+				INFOPLIST_FILE = KaiaHealth_CaseStudyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.KaiaHealth-CaseStudyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KaiaHealth_CaseStudy.app/KaiaHealth_CaseStudy";
+			};
+			name = Debug;
+		};
+		E40C006C26D32359009D54AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = USRA36PDDV;
+				INFOPLIST_FILE = KaiaHealth_CaseStudyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.KaiaHealth-CaseStudyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KaiaHealth_CaseStudy.app/KaiaHealth_CaseStudy";
+			};
+			name = Release;
+		};
+		E40C006E26D32359009D54AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = USRA36PDDV;
+				INFOPLIST_FILE = KaiaHealth_CaseStudyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.KaiaHealth-CaseStudyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KaiaHealth_CaseStudy;
+			};
+			name = Debug;
+		};
+		E40C006F26D32359009D54AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = USRA36PDDV;
+				INFOPLIST_FILE = KaiaHealth_CaseStudyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.KaiaHealth-CaseStudyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KaiaHealth_CaseStudy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E40C003826D32355009D54AA /* Build configuration list for PBXProject "KaiaHealth_CaseStudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40C006526D32359009D54AA /* Debug */,
+				E40C006626D32359009D54AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E40C006726D32359009D54AA /* Build configuration list for PBXNativeTarget "KaiaHealth_CaseStudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40C006826D32359009D54AA /* Debug */,
+				E40C006926D32359009D54AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E40C006A26D32359009D54AA /* Build configuration list for PBXNativeTarget "KaiaHealth_CaseStudyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40C006B26D32359009D54AA /* Debug */,
+				E40C006C26D32359009D54AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E40C006D26D32359009D54AA /* Build configuration list for PBXNativeTarget "KaiaHealth_CaseStudyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40C006E26D32359009D54AA /* Debug */,
+				E40C006F26D32359009D54AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E40C003526D32355009D54AA /* Project object */;
+}
