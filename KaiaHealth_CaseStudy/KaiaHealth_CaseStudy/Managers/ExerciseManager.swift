@@ -17,7 +17,7 @@ class ExerciseManager {
 
     // MARK: Properties
 
-    let networkManager = NetworkManager()
+    private let networkManager = NetworkManager()
 
     // MARK: Load exercise data
 
@@ -26,7 +26,7 @@ class ExerciseManager {
     /// - Returns: an array of type `[Exercise]`
     func loadExercises(completion: @escaping ([Exercise]) -> ()) {
         guard let url = URL(string: URLs.exerciseURL) else {
-            // TODO: Error handling
+            // TODO: Add error handling
             completion([])
             return
         }
@@ -36,7 +36,7 @@ class ExerciseManager {
             case .success(let exercises):
                 completion(exercises)
             case .failure:
-                // TODO: Error handling
+                // TODO: Add error handling
                 completion([])
             }
         }

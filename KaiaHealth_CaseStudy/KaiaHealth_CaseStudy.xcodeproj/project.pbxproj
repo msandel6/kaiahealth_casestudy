@@ -11,7 +11,7 @@
 		E40C004326D32355009D54AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C004226D32355009D54AA /* SceneDelegate.swift */; };
 		E40C004A26D32359009D54AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E40C004926D32359009D54AA /* Assets.xcassets */; };
 		E40C004D26D32359009D54AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40C004B26D32359009D54AA /* LaunchScreen.storyboard */; };
-		E40C005826D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C005726D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift */; };
+		E40C005826D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C005726D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift */; };
 		E40C006326D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C006226D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift */; };
 		E40C007F26D323AA009D54AA /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007526D323A9009D54AA /* Exercise.swift */; };
 		E40C008026D323AA009D54AA /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C007626D323A9009D54AA /* Section.swift */; };
@@ -58,7 +58,7 @@
 		E40C004C26D32359009D54AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E40C004E26D32359009D54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40C005326D32359009D54AA /* KaiaHealth_CaseStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiaHealth_CaseStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E40C005726D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyFavoritesManagerTests.swift; sourceTree = "<group>"; };
+		E40C005726D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyExerciseCellTests.swift; sourceTree = "<group>"; };
 		E40C005926D32359009D54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40C005E26D32359009D54AA /* KaiaHealth_CaseStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiaHealth_CaseStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40C006226D32359009D54AA /* KaiaHealth_CaseStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealth_CaseStudyUITests.swift; sourceTree = "<group>"; };
@@ -149,9 +149,9 @@
 		E40C005626D32359009D54AA /* KaiaHealth_CaseStudyTests */ = {
 			isa = PBXGroup;
 			children = (
-				E40C005726D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift */,
-				E40C005926D32359009D54AA /* Info.plist */,
+				E40C005726D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift */,
 				E41291E726D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift */,
+				E40C005926D32359009D54AA /* Info.plist */,
 			);
 			path = KaiaHealth_CaseStudyTests;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E40C005826D32359009D54AA /* KaiaHealth_CaseStudyFavoritesManagerTests.swift in Sources */,
+				E40C005826D32359009D54AA /* KaiaHealth_CaseStudyExerciseCellTests.swift in Sources */,
 				E41291E826D4B023007DB2D2 /* KaiaHealth_CaseStudySafeIndexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

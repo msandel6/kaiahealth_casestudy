@@ -9,10 +9,10 @@ import UIKit
 
 extension UIImageView {
 
-    /// Loads an image from a URL
+    /// Loads an image from a URL using NetworkManager
     /// - Parameters:
-    ///   - stringURL: a String representation of the image URL
-    ///   - completion: closure to be executed once request is completed
+    ///   - stringURL: String representation of the image URL
+    ///   - completion: Closure to be executed once request is completed
     func loadImage(stringURL: String?) {
         guard let stringURL = stringURL,
               let url = URL(string: stringURL) else {
@@ -22,7 +22,9 @@ extension UIImageView {
         let networkManager = NetworkManager()
 
         networkManager.loadImage(url) { [weak self] loadedImage in
-            self?.image = loadedImage
+            DispatchQueue.main.async {
+                self?.image = loadedImage
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ class ExerciseCell: UITableViewCell {
     // MARK: Properties
 
     private var exercise: Exercise?
-    private let favoritesManager = FavoritesManager()
+    private let favoritesManager: FavoritesManager
 
     // MARK: Reuse identifier
 
@@ -71,7 +71,14 @@ class ExerciseCell: UITableViewCell {
 
     // MARK: Initializers
 
+    init(favoritesManager: FavoritesManager = FavoritesManager()) {
+        self.favoritesManager = favoritesManager
+        super.init(style: .default, reuseIdentifier: Self.reuseIdentifier)
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        favoritesManager = FavoritesManager()
+
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         contentView.backgroundColor = .clear

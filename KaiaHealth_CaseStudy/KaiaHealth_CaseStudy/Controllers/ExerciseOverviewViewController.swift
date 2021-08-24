@@ -11,7 +11,7 @@ class ExerciseOverviewViewController: UIViewController {
 
     // MARK: Strings
 
-    // Note: With more time, these strings should be localized
+    // TODO: With more time, these strings should be localized
     private enum Strings {
         static let title = "Exercises"
     }

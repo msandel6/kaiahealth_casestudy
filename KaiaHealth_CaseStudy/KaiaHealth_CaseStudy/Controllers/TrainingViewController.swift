@@ -15,8 +15,8 @@ class TrainingViewController: UIViewController {
 
     // MARK: Strings
 
+    // Note: With more time, these strings should be localized
     private enum Strings {
-        // Note: With more time, these strings should be localized
         static let cancelTraining = "Cancel Training"
     }
 
@@ -27,7 +27,7 @@ class TrainingViewController: UIViewController {
     private var currentExerciseIndex = 0
     private var timer: Timer?
 
-    private var exercise: Exercise? {
+    private var currentExercise: Exercise? {
         return self.exercises[safe: self.currentExerciseIndex]
     }
 
@@ -45,7 +45,7 @@ class TrainingViewController: UIViewController {
 
     private lazy var favoriteIcon: FavoriteIcon = {
         let favoriteIcon = FavoriteIcon()
-        if let exercise = exercise {
+        if let exercise = currentExercise {
             favoriteIcon.configure(isFavorite: favoritesManager.favoriteStatus(for: exercise.id))
         }
         favoriteIcon.addTarget(self, action: #selector(setFavoriteStatus(to:)), for: .touchUpInside)
@@ -53,12 +53,12 @@ class TrainingViewController: UIViewController {
     }()
 
     private lazy var cancelButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(Strings.cancelTraining, for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
-        return button
+        let cancelButton = UIButton()
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.setTitle(Strings.cancelTraining, for: .normal)
+        cancelButton.setTitleColor(.systemBlue, for: .normal)
+        cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        return cancelButton
     }()
 
     private lazy var stackView: UIStackView = {
@@ -99,7 +99,7 @@ class TrainingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         startExerciseTimer()
-        exerciseImageView.loadImage(stringURL: exercises[currentExerciseIndex].coverImageUrl)
+        exerciseImageView.loadImage(stringURL: currentExercise?.coverImageUrl)
         setupStackView()
     }
 
@@ -117,22 +117,22 @@ class TrainingViewController: UIViewController {
     }
 
     private func configureFavoriteIcon() {
-        guard let exercise = exercise else { return }
+        guard let exercise = currentExercise else { return }
         favoriteIcon.configure(isFavorite: favoritesManager.favoriteStatus(for: exercise.id))
     }
 
+    // TODO: Break this logic into its own manager given more time
     private func startExerciseTimer() {
-        // TODO: Break this logic into its own manager given more time.
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] timer in
             guard let self = self else { return }
 
             self.currentExerciseIndex += 1
-            if let exercise = self.exercise {
+            if let exercise = self.currentExercise {
                 self.favoriteIcon.configure(isFavorite: self.favoritesManager.favoriteStatus(for: exercise.id))
                 self.exerciseImageView.loadImage(stringURL: exercise.coverImageUrl)
             } else {
                 timer.invalidate()
-                self.dismiss(animated: true)
+                self.delegate?.trainingViewControllerDidRequestDismissal(self)
             }
         }
     }
@@ -144,7 +144,7 @@ class TrainingViewController: UIViewController {
     }
 
     @objc func setFavoriteStatus(to isFavorite: Bool) {
-        guard let exercise = exercise else { return }
+        guard let exercise = currentExercise else { return }
         favoritesManager.setFavoriteStatus(isFavorite,
                                            for: exercise.id)
         configureFavoriteIcon()

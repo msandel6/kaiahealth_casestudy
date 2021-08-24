@@ -11,8 +11,8 @@ class ExerciseTableViewFooter: UIView {
 
     // MARK: Strings
 
+    // Note: With more time, these strings should be localized
     private enum Strings {
-        // Note: With more time, these strings should be localized
         static let startTraining = "Start Training"
     }
 
